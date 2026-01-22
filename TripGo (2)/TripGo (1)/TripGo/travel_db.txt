@@ -1,0 +1,97 @@
+-- ================================
+-- TripGo Project Database
+-- ================================
+
+CREATE DATABASE IF NOT EXISTS travel_db;
+USE travel_db;
+
+-- ================================
+-- USERS TABLE
+-- ================================
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ================================
+-- ADMIN TABLE
+-- ================================
+CREATE TABLE IF NOT EXISTS admin (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+-- ================================
+-- TOURS TABLE (Admin adds tour spots)
+-- ================================
+CREATE TABLE IF NOT EXISTS tours (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    destination VARCHAR(150) NOT NULL,
+    price VARCHAR(50) NOT NULL,
+    description TEXT
+);
+
+-- ================================
+-- HOTELS TABLE
+-- ================================
+CREATE TABLE IF NOT EXISTS hotels (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    hotel_name VARCHAR(150) NOT NULL
+);
+
+-- ================================
+-- BOOKINGS TABLE
+-- ================================
+CREATE TABLE IF NOT EXISTS bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    destination VARCHAR(150) NOT NULL,
+    travel_date DATE NOT NULL,
+    persons INT NOT NULL,
+    hotel VARCHAR(150) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- ================================
+-- SAMPLE USERS
+-- ================================
+INSERT INTO users (username, email, password)
+VALUES 
+('DemoUser', 'demo@tripgo.com', '$2y$10$abcdefghijklmnopqrstuv');
+
+-- ================================
+-- SAMPLE ADMIN
+-- ================================
+INSERT INTO admin (username, password)
+VALUES ('admin', MD5('admin123'));
+
+-- ================================
+-- SAMPLE HOTELS
+-- ================================
+INSERT INTO hotels (hotel_name) VALUES
+('Hotel Paradise'),
+('Sea View Resort'),
+('Mountain Inn'),
+('City Lights Hotel');
+
+-- ================================
+-- SAMPLE TOURS
+-- ================================
+INSERT INTO tours (destination, price, description)
+VALUES
+('Paris', '$1200', 'City of lights and love'),
+('Venice', '$1500', 'Beautiful canals and gondolas'),
+('Kyoto', '$1800', 'Traditional Japanese culture');
+
+-- ================================
+-- SAMPLE BOOKINGS
+-- ================================
+INSERT INTO bookings (user_id, destination, travel_date, persons, hotel)
+VALUES
+(1, 'Paris', '2026-03-15', 2, 'Hotel Paradise'),
+(1, 'Venice', '2026-04-20', 3, 'Sea View Resort');

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Purnima Rani | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Purnima Rani</h1>
+    <p>Computer Science Student | Cyber Security Enthusiast</p>
+</header>
+
+<!-- About -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        I am a Computer Science student passionate about Cyber Security.
+        I enjoy learning about ethical hacking, network security,
+        and secure application development.
+    </p>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+    <h2>Skills</h2>
+    <ul>
+        <li>HTML & CSS</li>
+        <li>Research & Project management</li>
+        <li>Deep Learning: EfficientNetB3,InceptionV3</li>
+    </ul>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+        <h3>Personal Portfolio Website</h3>
+        <p>Designed a responsive portfolio</p>
+    </div>
+</section>
+
+<!-- Education -->
+<section id="education">
+    <h2>Education</h2>
+    <p>Bachelor of Science (B.Sc.)Computer Science & Engineering
+        From: Southeast University
+    </p>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: sammyruood111@gmail.com</p>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Rani.P</p>
+</footer>
+
+</body>
+</html>
